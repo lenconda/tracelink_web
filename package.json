@@ -1,0 +1,51 @@
+{
+  "name": "tinytrack_web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --config config/webpack.config.js --mode development --open --hot",
+    "build": "webpack --config config/webpack.config.js --mode production"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.2",
+    "@babel/plugin-proposal-class-properties": "7.3.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.3.1",
+    "@babel/preset-env": "7.3.1",
+    "@babel/preset-react": "7.0.0",
+    "@babel/preset-typescript": "7.1.0",
+    "babel-loader": "8.0.5",
+    "css-loader": "2.1.0",
+    "glob": "^7.1.4",
+    "html-webpack-plugin": "3.2.0",
+    "style-loader": "0.23.1",
+    "tslint": "5.12.1",
+    "tslint-immutable": "5.1.2",
+    "typescript": "3.2.4",
+    "webpack": "4.29.0",
+    "webpack-cli": "3.2.1",
+    "webpack-dev-server": "3.1.14"
+  },
+  "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@types/react": "16.7.22",
+    "@types/react-dom": "16.0.11",
+    "@types/react-router": "^5.0.3",
+    "@types/react-router-dom": "^4.3.4",
+    "autoprefixer": "^9.6.1",
+    "babel-preset-react-app": "^9.0.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "file-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "sass-loader": "^7.1.0",
+    "uglifyjs-webpack-plugin": "^2.1.3"
+  }
+}
