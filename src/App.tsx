@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.scss';
+import { ToastContainer } from 'react-toastify';
 
 const App = (): JSX.Element => {
   return (
     <div>
-      <h1 className='title'>Index Page</h1>
+      <ToastContainer />
     </div>
   );
 };
