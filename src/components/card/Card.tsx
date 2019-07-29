@@ -1,5 +1,5 @@
 import React from 'react';
-import './RecordCard.scss';
+import './Card.scss';
 import Loading from '../loading/Loading';
 import Spinner from '../spinner/Spinner';
 
