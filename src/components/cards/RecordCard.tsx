@@ -10,20 +10,31 @@ export interface Schema {
 interface RecordCardProps {
   title?: string;
   schema?: Schema[];
+  extra?: React.ReactNode;
   data?: any;
 }
 
 const RecordCard = ({
   title = '',
   schema,
-  data
+  data,
+  ...props
 }: RecordCardProps) => {
   return (
     <div className="zi-card">
       {
-        title && <h4 className="text-truncate">{title}</h4>
+        title && (
+          <div className="header">
+            <h4 className="text-truncate">{title}</h4>
+            {
+              props.extra && (
+                <div className="extra">{props.extra}</div>
+              )
+            }
+          </div>
+        )
       }
-      <div className="card-body">
+      <div className="body">
         {
           schema && schema.map((value, index) => {
             return (

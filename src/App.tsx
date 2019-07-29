@@ -22,7 +22,7 @@ const App = (): JSX.Element => {
 
   return (
     <div>
-      <RecordCard title="asdasdasd" schema={schema} data={data} />
+      <RecordCard title="asdasdasd" schema={schema} data={data} extra={<button>Button</button>} />
       <ToastContainer />
     </div>
   );
