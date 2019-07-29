@@ -91,7 +91,7 @@
 		"no-trailing-whitespace": true,
 		"object-literal-sort-keys": false,
 		"trailing-comma": [
-			true,
+			false,
 			{
 				"multiline": "never",
 				"singleline": "never"

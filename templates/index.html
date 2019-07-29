@@ -1,11 +1,32 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>TinyLinks, Inc</title>
+  <title>TraceLink, Inc</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <link rel="stylesheet"
+    href="//rawcdn.githack.com/lenconda/static/68f3718880324fdf09d308a0ef488adb170e093f/toast-styles/dist/main.css">
+  <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@zeit-ui/style@latest/dist/style.css">
+  <link rel="stylesheet"
+    href="//rawcdn.githack.com/lenconda/static/ecd06cb7985ea3f2227687be786c3288370cd5a0/linkstats/theme.min.css">
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
+  <script src="//cdn.bootcss.com/popper.js/1.12.9/umd/popper.js"></script>
+  <script src="//cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
 <body>
   <div id="root"></div>
 </body>
+
 </html>
