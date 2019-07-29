@@ -1,0 +1,22 @@
+.card-body {
+  padding-left: 0;
+  padding-right: 0;
+
+  & > .item {
+    padding: .5em 0;
+    display: flex;
+    justify-content: space-between;
+
+    & > .title {
+      word-break: break-all;
+      text-align: left;
+      width: 50%;
+    }
+    
+    & > .data {
+      text-align: right;
+      width: 50%;
+      font-weight: 500;
+    }
+  }
+}

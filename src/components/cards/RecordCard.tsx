@@ -1,9 +1,10 @@
 import React from 'react';
+import './RecordCard.scss';
 
 export interface Schema {
   key: string;
   title?: string;
-  render?: (data: any) => React.ReactNode | string | any;
+  render?: (text: any, data: any) => React.ReactNode | string | any;
 }
 
 interface RecordCardProps {
@@ -30,11 +31,13 @@ const RecordCard = ({
                 data[value.key]
                   ? <div className="item">
                     <div className="title">{value.title}</div>
-                    {
-                      value.render
-                        ? value.render(data[value.key])
-                        : <div className="data">{data[value.key]}</div>
-                    }
+                    <div className="data">
+                      {
+                        value.render
+                          ? value.render(data[value.key], data)
+                          : data[value.key]
+                      }
+                    </div>
                   </div>
                   : null
               );
