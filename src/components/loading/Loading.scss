@@ -1,0 +1,11 @@
+.loading-container {
+  display: flex;
+  position: relative;
+  width: 100;
+  height: 3em;
+  justify-content: center;
+
+  & > .zi-loading-shim {
+    background-color: transparent;
+  }
+}
