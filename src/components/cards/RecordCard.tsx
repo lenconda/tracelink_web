@@ -21,28 +21,26 @@ const RecordCard = ({
   return (
     <div className="zi-card">
       {
-        title && <h4>{title}</h4>
+        title && <h4 className="text-truncate">{title}</h4>
       }
       <div className="card-body">
         {
-          schema
-            ? schema.map((value, index) => {
-              return (
-                data[value.key]
-                  ? <div className="item" key={index}>
-                    <div className="title">{value.title}</div>
-                    <div className="data">
-                      {
-                        value.render
-                          ? value.render(data[value.key], data)
-                          : data[value.key]
-                      }
-                    </div>
+          schema && schema.map((value, index) => {
+            return (
+              data[value.key] && (
+                <div className="item" key={index}>
+                  <div className="title">{value.title}</div>
+                  <div className="data">
+                    {
+                      value.render
+                        ? value.render(data[value.key], data)
+                        : data[value.key]
+                    }
                   </div>
-                  : null
-              );
-            })
-            : null
+                </div>
+              )
+            );
+          })
         }
       </div>
     </div>
