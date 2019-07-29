@@ -29,7 +29,7 @@ const RecordCard = ({
             ? schema.map((value, index) => {
               return (
                 data[value.key]
-                  ? <div className="item">
+                  ? <div className="item" key={index}>
                     <div className="title">{value.title}</div>
                     <div className="data">
                       {
