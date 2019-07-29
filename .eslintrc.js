@@ -20,6 +20,7 @@ module.exports = {
       'error',
       2
     ],
+    '@typescript-eslint/no-var-requires': 'off',
     'react/jsx-indent': [
       'error',
       2
