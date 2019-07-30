@@ -19,6 +19,10 @@ function getEntries(searchPath, root) {
   return entries;
 }
 
+module.exports.getEntries = getEntries;
+
+const htmls = {};
+
 const entries = getEntries('src/pages/**/index.tsx', 'src/pages');
 const rootEntries = getEntries('src/**/index.tsx', 'src');
 
@@ -101,7 +105,7 @@ module.exports = {
     ...entries.map((value, index) => {
       return new HtmlWebpackPlugin({
         filename: value.name === 'src' ? 'index.html' : value.route + '/index.html',
-        template: path.resolve(__dirname, '../templates/index.html'),
+        template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index') + '.html'),
         inject: true,
         chunks: [value.name]
       });
@@ -109,7 +113,7 @@ module.exports = {
     ...rootEntries.map((value, index) => {
       return new HtmlWebpackPlugin({
         filename: value.name === 'src' ? 'index.html' : value.route + '/index.html',
-        template: path.resolve(__dirname, '../templates/index.html'),
+        template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index') + '.html'),
         inject: true,
         chunks: [value.name]
       });
