@@ -31,13 +31,15 @@ const Button = ({
   width = 'fixed',
   ...props
 }: ButtonProps) => {
-  const classString = `zi-btn ${(border !== 'circular') ? type : ''} 
-                      ${loading ? 'loading' : ''} 
-                      ${shadow ? 'shadow' : ''}
-                      ${ghost ? 'ghost' : ''}
-                      ${border === 'circular' ? 'circular' : ''}
-                      ${size !== 'default' ? size : ''}
-                      ${width === 'auto' ? 'auto' : ''}`;
+  const classString = `zi-btn 
+  ${loading
+    ? 'loading'
+    : `${shadow ? 'shadow' : ''}
+      ${(border !== 'circular') ? type : ''}
+      ${ghost ? 'ghost' : ''}
+      ${border === 'circular' ? 'circular' : ''}
+      ${size !== 'default' ? size : ''}
+      ${width === 'auto' ? 'auto' : ''}`}`;
 
   return (
     <button className={classString} disabled={loading} onClick={props.onClick} {...props}>
