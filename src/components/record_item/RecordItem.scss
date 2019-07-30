@@ -1,0 +1,41 @@
+.item-content {
+  border-bottom: 1px solid #eaeaea;
+
+  &::before {
+    display: none;
+  }
+
+  & > .item-content-container {
+    margin-bottom: 1em;
+
+    & .time {
+      text-align: right;
+
+      & > span {
+        color: #999;
+        font-weight: 200;
+      }
+
+      @media (max-width: 767px) {
+        & {
+          text-align: left;
+        }
+      }
+    }
+    
+    & .country {
+      display: inline-block;
+      font-weight: 200;
+      color: #999;
+    }
+
+    & .ip {
+      font-weight: 500;
+      color: #000;
+    }
+  }
+
+  & > .item-content-footer {
+    margin-bottom: 1em;
+  }
+}
