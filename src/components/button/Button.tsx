@@ -34,6 +34,7 @@ const Button = ({
   const classString = `zi-btn ${className} 
   ${border === 'circular' ? 'circular' : ''}
   ${size !== 'default' ? size : ''}
+  ${props.disabled && 'disabled'}
   ${width === 'auto' ? 'auto' : ''}
   ${loading
     ? 'loading'
