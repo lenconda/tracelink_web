@@ -1,0 +1,8 @@
+<svg width="211" height="48" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" class="icon">
+                        <g>
+                        <title>Layer 1</title>
+                        <path id="svg_1" opacity="0.3" fill="#000000" d="m23.28552,24.4282m-23.01208,0a23.01209,23.01209 0 1 0 46.02417,0a23.01209,23.01209 0 1 0 -46.02417,0z"/>
+                        <path id="svg_2" fill="#000000" d="m26.23843,40.69265l9.61053,-19.2179a2.37336,2.37336 0 0 0 -2.12019,-3.43348l-8.81941,0l0,-8.93333a2.37336,2.37336 0 0 0 -4.49358,-1.06011l-9.61053,19.21789a2.37336,2.37336 0 0 0 2.12021,3.43349l8.81941,0l0,8.93332a2.37336,2.37336 0 0 0 4.49355,1.06012z"/>
+                        <text transform="matrix(1.05623, 0, 0, 1.05623, -2.96828, -0.267394)" xml:space="preserve" text-anchor="middle" font-family="Monospace" font-size="24" id="svg_3" y="30.45252" x="130.21018" stroke-linecap="null" stroke-linejoin="null" stroke-dasharray="null" stroke-width="0" fill="#000000">TraceL.ink</text>
+                        </g>
+                      </svg>

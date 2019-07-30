@@ -31,7 +31,7 @@ const Button = ({
   width = 'fixed',
   ...props
 }: ButtonProps) => {
-  const classString = `zi-btn 
+  const classString = `zi-btn ${className} 
   ${border === 'circular' ? 'circular' : ''}
   ${size !== 'default' ? size : ''}
   ${width === 'auto' ? 'auto' : ''}
