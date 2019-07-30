@@ -26,15 +26,15 @@ const RecordCard = ({
   ...props
 }: RecordCardProps) => {
   return (
-    <div className="zi-card">
+    <div className="zi-fieldset tl-card">
       {
         loading
           ? <Loading indicator={<Spinner />} />
-          : <>
+          : <div className="zi-fieldset-content tl-card-content">
             {
               title && (
-                <div className="header">
-                  <h4 className="text-truncate">{title}</h4>
+                <div className="tl-card-header">
+                  <h2 className="text-truncate">{title}</h2>
                   {
                     props.extra && (
                       <div className="extra">{props.extra}</div>
@@ -43,7 +43,7 @@ const RecordCard = ({
                 </div>
               )
             }
-            <div className="body">
+            <div className="tl-card-body">
               {
                 schema && schema.map((value, index) => {
                   return (
@@ -66,9 +66,8 @@ const RecordCard = ({
             {
               props.footer && props.footer
             }
-          </>
+          </div>
       }
-
     </div>
   );
 };

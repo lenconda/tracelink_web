@@ -1,21 +1,24 @@
-.zi-card {
-  .header {
+.tl-card {
+  .tl-card-header {
     display: flex;
     justify-content: space-around;
     
-    & > h4 {
+    & > h2 {
+      font-size: 1.2em;
+      font-weight: 400;
+      color: #000;
       flex-grow: 1;
     }
   }
 
-  .body {
+  .tl-card-body {
     padding-left: 0;
     padding-right: 0;
 
     & > .item {
-      padding: .5em 0;
       display: flex;
       justify-content: space-between;
+      margin: 0;
 
       & > .title {
         word-break: break-all;
@@ -29,12 +32,6 @@
         font-weight: 500;
       }
     }
-  }
-
-  .footer {
-    margin-top: 1em;
-    padding: 1em 0;
-    border-top: 1px solid #ccc;
   }
 }
 
