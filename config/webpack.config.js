@@ -22,7 +22,7 @@ function getEntries(searchPath, root) {
 module.exports.getEntries = getEntries;
 
 const htmls = {
-  'create': 'create'
+  'create': 'create.ejs'
 };
 
 const entries = getEntries('src/pages/**/index.tsx', 'src/pages');
@@ -68,6 +68,10 @@ module.exports = {
         ]
       },
       {
+        test: /\.ejs$/,
+        loader: 'ejs-loader?variable=data'
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
@@ -99,7 +103,7 @@ module.exports = {
     ...entries.map((value, index) => {
       return new HtmlWebpackPlugin({
         filename: value.route === '' ? 'index.html' : value.route + '/index.html',
-        template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index') + '.html'),
+        template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index.ejs')),
         inject: true,
         chunks: [value.name === 'pages' ? 'index' : value.name]
       });

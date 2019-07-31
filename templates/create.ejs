@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>TraceLink, Inc</title>
+  <title>Create | TraceLink, Inc</title>
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
@@ -36,30 +36,19 @@
 </head>
 
 <body>
+  <header class="container-fluid header">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8">
+        <a href="/">
+          <img src="/assets/img/logo.svg" alt="logo" height="32px">
+        </a>
+        <h1>Create a track link</h1>
+        <a class="header-link" href="/">&larr;&nbsp;Back to Home page</a>
+      </div>
+    </div>
+  </header>
   <div id="root"></div>
-  <div class="footer">
-    <span class="item">
-      <a class="link" href="https://github.com/lenconda/tracelink_web">
-        <i class="fa fa-github"></i>
-      </a>
-    </span>
-    <span class="item">
-      <a class="link" href="https://github.com/lenconda/tracelink_web/blob/master/LICENSE">
-        Open Source License
-      </a>
-    </span>
-    <span class="item">
-      <a class="link" href="https://github.com/lenconda/tracelink_web">
-        User License
-      </a>
-    </span>
-    <span class="item">
-      <a class="link" href="https://github.com/lenconda/tracelink_web">
-        Privacy Policy
-      </a>
-    </span>
-    <div class="line">Copyright (c) 2019 TraceLink, Inc. All rights reserved.</div>
-  </div>
+  <%= require('./parts/footer.ejs')() %>
 </body>
 
 </html>
