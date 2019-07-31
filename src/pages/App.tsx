@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-import Button from './components/button/Button';
+import Button from '../components/button/Button';
 import './App.scss';
 
 const App = (): JSX.Element => {
