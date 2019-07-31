@@ -16,6 +16,7 @@ interface RecordCardProps {
   footer?: React.ReactNode;
   extra?: React.ReactNode;
   data?: any;
+  className?: string;
 }
 
 const RecordCard = ({
@@ -23,10 +24,11 @@ const RecordCard = ({
   loading = false,
   schema,
   data,
+  className = '',
   ...props
 }: RecordCardProps) => {
   return (
-    <div className="zi-fieldset tl-card">
+    <div className={`zi-fieldset tl-card ${className}`}>
       {
         loading
           ? <Loading indicator={<Spinner />} />
@@ -43,14 +45,14 @@ const RecordCard = ({
                 </div>
               )
             }
-            <div className="tl-card-body">
+            <div className="container tl-card-body">
               {
                 schema && schema.map((value, index) => {
                   return (
                     data[value.key] && (
-                      <div className="item" key={index}>
-                        <div className="title">{value.title}</div>
-                        <div className="data">
+                      <div className="row item" key={index}>
+                        <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 title">{value.title}</div>
+                        <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 data">
                           {
                             value.render
                               ? value.render(data[value.key], data)
