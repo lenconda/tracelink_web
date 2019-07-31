@@ -1,0 +1,25 @@
+.footer {
+  padding: 2em;
+  text-align: center;
+  background-color: #fafafa;
+  border-top: 1px solid #eee;
+  font-size: 12px;
+  font-weight: 200;
+  color: #959595;
+}
+
+.footer .item {
+  padding: 2px 1em;
+  border-left: 1px solid #efefef;
+  border-right: 1px solid #efefef;
+}
+
+.footer .link {
+  font-weight: 200;
+  color: #959595;
+}
+
+.footer .line {
+  margin-top: 2em;
+  text-align: center;
+}

@@ -14,13 +14,52 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@zeit-ui/style@latest/dist/style.css">
   <link rel="stylesheet"
     href="//rawcdn.githack.com/lenconda/static/ecd06cb7985ea3f2227687be786c3288370cd5a0/linkstats/theme.min.css">
+  <link rel="stylesheet" href="/assets/css/index.css">
   <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.css">
   <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"></script>
   <script src="//cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    #root {
+      min-width: 320px;
+    }
+    
+    @media (min-width: 320px) {
+      #root {
+        overflow-x: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div id="root"></div>
+  <div class="footer">
+    <span class="item">
+      <a class="link" href="https://github.com/lenconda/tracelink_web">
+        <i class="fa fa-github"></i>
+      </a>
+    </span>
+    <span class="item">
+      <a class="link" href="https://github.com/lenconda/tracelink_web/blob/master/LICENSE">
+        Open Source License
+      </a>
+    </span>
+    <span class="item">
+      <a class="link" href="https://github.com/lenconda/tracelink_web">
+        User License
+      </a>
+    </span>
+    <span class="item">
+      <a class="link" href="https://github.com/lenconda/tracelink_web">
+        Privacy Policy
+      </a>
+    </span>
+    <div class="line">Copyright (c) 2019 TraceLink, Inc. All rights reserved.</div>
+  </div>
 </body>
 
 </html>

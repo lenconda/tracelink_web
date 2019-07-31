@@ -1,0 +1,29 @@
+.index-input {
+  margin-bottom: 2em;
+
+  & input {
+    margin: 0;
+  }
+}
+
+.index-logo {
+  margin-bottom: 3em;
+}
+
+.index-button {
+  margin: .5em 0;
+}
+
+input.box-item {
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+}
+
+.box-item-wrapper {
+  width: 280px;
+  display: flex;
+  justify-content: center;
+}
