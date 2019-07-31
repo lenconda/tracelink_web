@@ -24,22 +24,14 @@ module.exports.getEntries = getEntries;
 const htmls = {};
 
 const entries = getEntries('src/pages/**/index.tsx', 'src/pages');
-const rootEntries = getEntries('src/**/index.tsx', 'src');
 
 module.exports = {
   entry: {
-    ...Object.assign(
-      ...entries.map((value, index) => {
-        const entryObject = {};
-        entryObject[value.name] = value.path;
-        return entryObject;
-      }),
-      ...rootEntries.map((value, index) => {
-        const entryObject = {};
-        entryObject[value.name] = value.path;
-        return entryObject;
-      })
-    )
+    ...Object.assign(...entries.map((value, index) => {
+      const entryObject = {};
+      entryObject[value.name === 'pages' ? 'index' : value.name] = value.path;
+      return entryObject;
+    }))
   },
   output: {
     path: path.join(__dirname, '../dist'),
@@ -104,15 +96,7 @@ module.exports = {
   plugins: [
     ...entries.map((value, index) => {
       return new HtmlWebpackPlugin({
-        filename: value.name === 'src' ? 'index.html' : value.route + '/index.html',
-        template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index') + '.html'),
-        inject: true,
-        chunks: [value.name]
-      });
-    }),
-    ...rootEntries.map((value, index) => {
-      return new HtmlWebpackPlugin({
-        filename: value.name === 'src' ? 'index.html' : value.route + '/index.html',
+        filename: value.route === '' ? 'index.html' : value.route + '/index.html',
         template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index') + '.html'),
         inject: true,
         chunks: [value.name]
