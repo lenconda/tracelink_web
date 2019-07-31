@@ -21,7 +21,9 @@ function getEntries(searchPath, root) {
 
 module.exports.getEntries = getEntries;
 
-const htmls = {};
+const htmls = {
+  'create': 'create'
+};
 
 const entries = getEntries('src/pages/**/index.tsx', 'src/pages');
 

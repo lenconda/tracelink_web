@@ -28,3 +28,24 @@
 .modal-footer {
   border: 0;
 }
+
+.header {
+  padding: 2rem 3rem 0;
+  margin-bottom: 4rem;
+  border-bottom: 1px solid #efefef;
+}
+
+.header h1 {
+  margin: 2em 0 1em 0;
+}
+
+.header .header-link {
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 460px) {
+ .header h1 {
+   text-align: center;
+ }
+}
