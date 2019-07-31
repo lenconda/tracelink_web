@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import Button from '../components/button/Button';
+import http from '../utils/http';
 import './App.scss';
 
 const App = (): JSX.Element => {
   const [trackId, setTrackId] = useState<string>('');
+  const [continueButtonLoading, setContinueButtonLoading] = useState<boolean>(false);
+
+  const fetch = (trackId: string) => {
+    setContinueButtonLoading(true);
+    http
+      .get(`/api/links/${trackId}`)
+      .then(res => {
+        setContinueButtonLoading(false);
+        if (res.data) { window.location.href = `/records?trackId=${trackId}` }
+      });
+  };
 
   return (
     <>
@@ -27,7 +39,9 @@ const App = (): JSX.Element => {
                 className="w-100 box-item"
                 type="primary"
                 disabled={!trackId}
+                loading={continueButtonLoading}
                 shadow={true}
+                onClick={() => { fetch(trackId) }}
               >
                 Continue
               </Button>
@@ -47,7 +61,7 @@ const App = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer position="bottom-right" autoClose={5000} closeOnClick={false} />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'https://api.tracel.ink' : 'http://localhost:4318';
 axios.defaults.timeout = 3600000;
 axios.interceptors.response.use(response => {
   if (response.data.data &&
