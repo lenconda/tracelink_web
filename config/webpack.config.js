@@ -99,7 +99,7 @@ module.exports = {
         filename: value.route === '' ? 'index.html' : value.route + '/index.html',
         template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index') + '.html'),
         inject: true,
-        chunks: [value.name]
+        chunks: [value.name === 'pages' ? 'index' : value.name]
       });
     }),
     new MiniCssExtractPlugin({
