@@ -18,6 +18,7 @@ interface ButtonProps {
   shadow?: boolean;
   children?: React.ReactNode;
   onClick?: () => any;
+  htmlType?: string;
 }
 
 const Button = ({
@@ -29,6 +30,7 @@ const Button = ({
   shadow = false,
   size = 'default',
   width = 'fixed',
+  htmlType = '',
   ...props
 }: ButtonProps) => {
   const classString = `zi-btn ${className} 
@@ -43,7 +45,7 @@ const Button = ({
       ${ghost ? 'ghost' : ''}`}`;
 
   return (
-    <button className={classString} disabled={loading} onClick={props.onClick} {...props}>
+    <button className={classString} disabled={loading} onClick={props.onClick} type={htmlType} {...props}>
       {
         loading ? <Spinner /> : props.children
       }
