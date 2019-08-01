@@ -49,7 +49,7 @@ const RecordCard = ({
               {
                 schema && schema.map((value, index) => {
                   return (
-                    data[value.key] && (
+                    (data[value.key] || value.render) && (
                       <div className="row item" key={index}>
                         <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 title">{value.title}</div>
                         <div className="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 data">
