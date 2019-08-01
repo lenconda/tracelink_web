@@ -6,12 +6,27 @@
   font-size: 12px;
   font-weight: 200;
   color: #959595;
+  min-width: 320px;
+}
+
+.footer .links, .footer .copyright {
+  margin: 1em 0;
+  border: 0;
+}
+
+.footer .copyright {
+  font-weight: 200;
+}
+
+.footer .links {
+  min-width: 320px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .footer .item {
   padding: 2px 1em;
-  border-left: 1px solid #efefef;
-  border-right: 1px solid #efefef;
 }
 
 .footer .link {
@@ -24,8 +39,7 @@
   text-align: center;
 }
 
-.modal-header,
-.modal-footer {
+.modal-header, .modal-footer {
   border: 0;
 }
 
@@ -48,4 +62,8 @@
  .header h1 {
    text-align: center;
  }
+}
+
+* {
+  transition: none;
 }
