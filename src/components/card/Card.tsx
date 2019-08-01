@@ -6,7 +6,7 @@ import Spinner from '../spinner/Spinner';
 export interface Schema {
   key: string;
   title?: string;
-  render?: (text: any, data: any) => React.ReactNode | string | any;
+  render?: (text?: any, data?: any) => React.ReactNode | string | any;
 }
 
 interface RecordCardProps {
@@ -45,7 +45,7 @@ const RecordCard = ({
                 </div>
               )
             }
-            <div className="container tl-card-body">
+            <div className="container-fluid tl-card-body">
               {
                 schema && schema.map((value, index) => {
                   return (
