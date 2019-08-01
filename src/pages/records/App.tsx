@@ -80,7 +80,7 @@ const App = (): JSX.Element => {
     {
       key: 'createTime',
       title: 'Create Time',
-      render: (text: number) => new Date(text).toLocaleDateString()
+      render: (text: number) => <span>{new Date(text).toUTCString()}</span>
     },
     {
       key: 'originalUrl',
