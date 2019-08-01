@@ -23,7 +23,8 @@ module.exports.getEntries = getEntries;
 
 const htmls = {
   'create': 'create.ejs',
-  'records': 'records.ejs'
+  'records': 'records.ejs',
+  'records/detail': 'record_detail.ejs'
 };
 
 const entries = getEntries('src/pages/**/index.tsx', 'src/pages');
