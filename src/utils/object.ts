@@ -1,7 +1,7 @@
 export const empty = (object: any): boolean => {
-  const values = Object.keys(object).map(value => object[value]);
-  for (const value of values) {
-    if (value) { return true }
+  const keys = Object.keys(object);
+  for (const key of keys) {
+    if (object[key] && key !== '_id' && key !== '__v') { return false }
   }
-  return false;
+  return true;
 };
