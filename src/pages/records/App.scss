@@ -1,0 +1,15 @@
+#root {
+  height: 100%;
+}
+
+.more {
+  & > .zi-more {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.info {
+  margin-bottom: 1.5em;
+}
