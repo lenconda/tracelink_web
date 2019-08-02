@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const config = require('./config');
 
 function getEntries(searchPath, root) {
   const files = glob.sync(searchPath);
@@ -21,10 +22,19 @@ function getEntries(searchPath, root) {
 
 module.exports.getEntries = getEntries;
 
-const htmls = {
-  'create': 'create.ejs',
-  'records': 'records.ejs',
-  'records/detail': 'record_detail.ejs'
+const pages = {
+  'create': {
+    template: 'create.html',
+    title: 'Create | ' + config.name
+  },
+  'records': {
+    template: 'records.html',
+    title: 'Records | ' + config.name
+  },
+  'records/detail': {
+    template: 'record_detail.html',
+    title: 'Record Detail | ' + config.name
+  }
 };
 
 const entries = getEntries('src/pages/**/index.tsx', 'src/pages');
@@ -70,10 +80,6 @@ module.exports = {
         ]
       },
       {
-        test: /\.ejs$/,
-        loader: 'ejs-loader?variable=data'
-      },
-      {
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
@@ -105,7 +111,14 @@ module.exports = {
     ...entries.map((value, index) => {
       return new HtmlWebpackPlugin({
         filename: value.route === '' ? 'index.html' : value.route + '/index.html',
-        template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index.ejs')),
+        template:
+          path.resolve(
+            __dirname,
+            '../templates/' + (pages[value.route] && (pages[value.route].template || 'index.html') || 'index.html')
+          ),
+        templateParameters: {
+          title: pages[value.route] && (pages[value.route].title || config.name) || config.name
+        },
         inject: true,
         chunks: [value.name === 'pages' ? 'index' : value.name]
       });
