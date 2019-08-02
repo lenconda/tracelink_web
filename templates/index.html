@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="utf-8">
-  <title>TraceL.ink <%= name %></title>
+  <title><%= title %></title>
   <%= require('html-loader!./parts/head.html') %>
 </head>
 
 <body>
   <div id="root"></div>
+  <%= require('html-loader!./parts/footer.html') %>
 </body>
 
 </html>

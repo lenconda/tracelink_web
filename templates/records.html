@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Create | TraceL.ink</title>
-  <%= require('./parts/head.ejs')() %>
+  <title><%= title %></title>
+  <%= require('html-loader!./parts/head.html') %>
 </head>
 
 <body>
@@ -14,13 +14,13 @@
         <a href="/">
           <img src="/assets/img/logo.svg" alt="logo" height="32px">
         </a>
-        <h1>Create a track link</h1>
+        <h1>Records for a specified track link</h1>
         <a class="header-link" href="/">&larr;&nbsp;Back to Home page</a>
       </div>
     </div>
   </header>
   <div id="root"></div>
-  <%= require('./parts/footer.ejs')() %>
+  <%= require('html-loader!./parts/footer.html') %>
 </body>
 
 </html>
