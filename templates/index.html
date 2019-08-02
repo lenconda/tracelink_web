@@ -4,12 +4,11 @@
 <head>
   <meta charset="utf-8">
   <title>TraceL.ink <%= name %></title>
-  <%= require('./parts/head.ejs')() %>
+  <%= require('html-loader!./parts/head.html') %>
 </head>
 
 <body>
   <div id="root"></div>
-  <%= require('./parts/footer.ejs')() %>
 </body>
 
 </html>

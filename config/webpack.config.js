@@ -105,7 +105,11 @@ module.exports = {
     ...entries.map((value, index) => {
       return new HtmlWebpackPlugin({
         filename: value.route === '' ? 'index.html' : value.route + '/index.html',
-        template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index.ejs')),
+        template: path.resolve(__dirname, '../templates/index.html'),
+        // template: path.resolve(__dirname, '../templates/' + (htmls[value.route] || 'index.ejs')),
+        templateParameters: {
+          name: 'rerer'
+        },
         inject: true,
         chunks: [value.name === 'pages' ? 'index' : value.name]
       });
