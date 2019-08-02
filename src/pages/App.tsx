@@ -20,7 +20,7 @@ const App = (): JSX.Element => {
 
   return (
     <>
-      <div className="container-fluid h-100 d-flex justify-content-center align-items-center">
+      <div className="container-fluid h-100 d-flex justify-content-center align-items-center position-absolute">
         <div className="w-100 d-flex flex-column justify-content-center align-items-center">
           <img className="index-logo" src="/assets/img/logo.svg" alt="site-logo" />
           <div className="index-input d-flex justify-content-center align-items-center row w-100">
