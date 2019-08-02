@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config config/webpack.config.js --mode development --open --hot",
-    "build": "webpack --config config/webpack.config.js --mode production"
+    "build": "webpack --config config/webpack.config.js --mode production",
+    "now-build": "npm run build"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
