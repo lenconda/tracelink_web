@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
@@ -114,10 +114,7 @@ module.exports = {
       filename: '[name].[hash:8].css',
       chunkFilename: '[id].[hash:8].css'
     }),
-    new UglifyJsPlugin({
-      test: /\.(ts|js|tsx|jsx)?$/,
-      sourceMap: true
-    }),
+    new TerserWebpackPlugin(),
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../assets/'),
