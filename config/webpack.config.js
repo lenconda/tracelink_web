@@ -48,7 +48,7 @@ module.exports = {
     }))
   },
   output: {
-    path: path.join(__dirname, '../dist'),
+    path: path.join(__dirname, '../server-bundle'),
     filename: 'static/js/[name]-route.[hash:8].js',
     publicPath: '/'
   },
@@ -110,7 +110,7 @@ module.exports = {
   plugins: [
     ...entries.map((value, index) => {
       return new HtmlWebpackPlugin({
-        filename: value.route === '' ? 'index.html' : value.route + '/index.html',
+        filename: path.join(__dirname, '../server-templates/', value.route === '' ? 'index.html' : value.route + '/index.html'),
         template:
           path.resolve(
             __dirname,
@@ -131,7 +131,7 @@ module.exports = {
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../assets/'),
-        to: path.resolve(__dirname, '../dist/assets')
+        to: path.resolve(__dirname, '../server-bundle/assets')
       }
     ]),
     new CleanWebpackPlugin()
