@@ -34,9 +34,14 @@
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"experimentalDecorators": true,
 		"noImplicitReturns": true,
 		"noFallthroughCasesInSwitch": true,
 		"forceConsistentCasingInFileNames": true,
 		"importHelpers": true
 	},
+	"exclude": [
+		"node_modules",
+		"server"
+	]
 }
