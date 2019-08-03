@@ -16,14 +16,12 @@ module.exports = {
       'error',
       2
     ],
-    '@typescript-eslint/indent': [
-      'error',
-      2
-    ],
+    '@typescript-eslint/indent': 'off',
     'react/jsx-indent-props': [
       'error',
       2
     ],
+    '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     'react/jsx-indent': [
       'error',
