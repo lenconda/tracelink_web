@@ -12,7 +12,7 @@
     "clean:bundle": "rm -rf server-{templates,bundle}",
     "clean:server": "rm -rf server-dist",
     "clean": "npm run clean:bundle && npm run clean:server",
-    "start": "npm run clean && npm run build && node server-dist/index.js",
+    "start": "npm run clean && npm run build:bundle && ts-node --project server/tsconfig.json server/index.ts",
     "now-build": "npm run build"
   },
   "browserslist": [
@@ -73,8 +73,8 @@
     "copy-webpack-plugin": "^5.0.3",
     "dotenv": "^8.0.0",
     "file-loader": "^4.1.0",
+    "handlebars": "^4.1.2",
     "html-loader": "^0.5.5",
-    "htmling": "0.0.8",
     "kcors": "^2.2.2",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
@@ -92,10 +92,8 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-toastify": "^5.3.2",
-    "routing-controllers": "^0.7.7",
     "sass-loader": "^7.1.0",
     "terser-webpack-plugin": "^1.4.1",
-    "typedi": "^0.8.0",
     "validator": "^11.1.0"
   }
 }
