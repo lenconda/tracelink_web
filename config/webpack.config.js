@@ -139,6 +139,10 @@ module.exports = {
       {
         from: path.resolve(__dirname, '../assets/'),
         to: path.resolve(__dirname, (config.isDev ? '../' : '../dist/') + 'server-bundle/assets')
+      },
+      {
+        from: path.resolve(__dirname, '../templates/redirect.html'),
+        to: path.resolve(__dirname, (config.isDev ? '../' : '../dist/') + 'server-templates/redirect.html')
       }
     ]),
     new CleanWebpackPlugin()
