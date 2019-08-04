@@ -4,8 +4,8 @@ import http from '../../../utils/http';
 import Card, { Schema } from '../../../components/card/Card';
 import Content from '../../../components/content/Content';
 import { empty } from '../../../utils/object';
-import qs from 'query-string';
 import './App.scss';
+import parser from 'path-parser';
 
 interface IPLocation {
   _id: string;
@@ -57,7 +57,11 @@ const App = (): JSX.Element => {
   const [recordOSInfo, setRecordOSInfo] = useState<Partial<SoftwareInfo>>({});
   const [recordDeviceInfo, setRecordDeviceInfo] = useState<Partial<HardwareInfo>>({});
 
-  const recordId = JSON.parse(JSON.stringify(qs.parse(window.location.search))).recordId || undefined;
+  // const recordId = JSON.parse(JSON.stringify(qs.parse(window.location.search))).recordId || undefined;
+
+  const pathScheme = parser.createPath('/records/detail/:id');
+  const parsedPathObject: any = pathScheme.partialTest(window.location.pathname);
+  const recordId = (parsedPathObject && parsedPathObject.id) || undefined;
 
   const fetchRecordDetail = () => {
     http
