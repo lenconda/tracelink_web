@@ -43,7 +43,7 @@ const RecordItem = ({
       </div>
     </div>
     <div className="item-content-footer">
-      <a className="text-truncate" href={`/records/detail?recordId=${recordId}`}>View detail &rarr;</a>
+      <a className="text-truncate" href={`/records/detail/${recordId}`}>View detail &rarr;</a>
     </div>
   </li>
 );
