@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title><%= title %></title>
+  <%= require('html-loader!./parts/head.html') %>
+</head>
+
+<body>
+  <header class="container-fluid header">
+    <div class="row d-flex justify-content-center">
+      <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8">
+        <a href="/">
+          <img src="/assets/img/logo.svg" alt="logo" height="32px">
+        </a>
+        <h1>Records for {{trackId}}</h1>
+        <a class="header-link" href="/">&larr;&nbsp;Back to Home page</a>
+      </div>
+    </div>
+  </header>
+  <div id="root">
+    <section class="container-fluid">
+      <div class="row d-flex justify-content-center">
+        <div class="col-12 col-sm-12 col-md-10 col-lg-8 col-xl-8">
+          <div class="container-fluid records-container">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-5">
+                <div class="zi-fieldset tl-card info">
+                  <div class="zi-fieldset-content tl-card-content">
+                    <div class="container-fluid tl-card-body">
+                      <div class="row item">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 title">Create Time</div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 data"><span>{{createTime}}</span></div>
+                      </div>
+                      <div class="row item">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 title">Target URL</div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 data">{{originalUrl}}</div>
+                      </div>
+                      <div class="row item">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 title">Track URL</div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 data">{{shorternUrl}}</div>
+                      </div>
+                      <div class="row item">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 title">Comment</div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 data">{{comment}}</div>
+                      </div>
+                      <div class="row item">
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 title">QR Code</div>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 data">
+                          <img src="{{{qrCode}}}" alt="{{{qrCode}}}" width="100" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="records" class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-7">
+                <%= require('html-loader!./effects/loading.html') %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <%= require('html-loader!./parts/footer.html') %>
+</body>
+
+</html>
