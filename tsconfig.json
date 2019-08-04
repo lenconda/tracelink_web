@@ -3,7 +3,7 @@
     "module": "commonjs",
     "target": "es6",
     "strict": true,
-    "outDir": "../dist/server",
+    "outDir": "dist/server",
     "typeRoots": ["../typings"],
     "noImplicitAny": false,
     "sourceMap": true,
