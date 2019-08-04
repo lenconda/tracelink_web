@@ -1,33 +1,41 @@
-import 'reflect-metadata';
 import path from 'path';
 import kcors from 'kcors';
 import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
 import logger from 'koa-logger';
-import { useKoaServer, useContainer } from 'routing-controllers';
-import { Container } from 'typedi';
 import config from './config';
 import views from 'koa-views';
 import serve from 'koa-static';
+import proxy from 'http-proxy-middleware';
+import connect from 'koa2-connect';
+
+import indexRouter from './routers/index';
+import createRouter from './routers/create';
+import recordsRouter from './routers/records';
 
 const app = new Koa();
 
-app.use(async (ctx, next): Promise<any> => {
-  try { await next() } catch (e) {
-    ctx.status = e.status || e.httpCode || 403;
-    ctx.body = {
-      status: ctx.status || 403,
-      message: e.message,
-      data: e.errors ? e.errors : {},
-    };
-  }
-});
-
 app.use(views(path.join(__dirname, '../server-templates'), {
   map: {
-    html: 'htmling'
+    html: 'handlebars'
   }
 }));
+
+app.use(async (ctx, next) => {
+  if (ctx.url.startsWith('/api')) {
+    ctx.respond = false;
+    await connect(proxy({
+      target: config.api,
+      changeOrigin: true,
+      secure: config.isDev ? false : true,
+    }))(ctx, next);
+  }
+  await next();
+});
+
+app.use(indexRouter.routes()).use(indexRouter.allowedMethods());
+app.use(createRouter.routes()).use(createRouter.allowedMethods());
+app.use(recordsRouter.routes()).use(recordsRouter.allowedMethods());
 
 app.use(serve(path.join(__dirname, '../server-bundle')));
 
@@ -37,15 +45,6 @@ app.use(bodyParser());
 
 if (config.isDev) app.use(logger());
 
-const port: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 4318;
+const port: number = process.env.PORT ? parseInt(process.env.PORT, 10) : 5000;
 
-useContainer(Container);
-useKoaServer(app, {
-  controllers: [path.join(__dirname, '/controllers/*.{ts,js}')],
-  middlewares: [path.join(__dirname, '/middlewares/*.{ts,js}')],
-  defaults: {
-    paramOptions: { required: false },
-  },
-  defaultErrorHandler: false,
-  classTransformer: false,
-}).listen(port);
+app.listen(port);
