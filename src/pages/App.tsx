@@ -14,7 +14,7 @@ const App = (): JSX.Element => {
       .get(`/api/links/${trackId}`)
       .then(res => {
         setContinueButtonLoading(false);
-        if (res.data) { window.location.href = `/records?trackId=${trackId}` }
+        if (res.data) { window.location.href = `/records/${trackId}` }
       });
   };
 
