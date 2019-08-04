@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
-    "outDir": "../server-dist",
+    "outDir": "../dist/server",
     "typeRoots": ["./typings"],
     "noImplicitAny": false,
     "sourceMap": true,
