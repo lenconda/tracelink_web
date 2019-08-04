@@ -6,7 +6,7 @@ const recordsRouter = new Router({
   prefix: '/records'
 });
 
-interface Response<T> {
+export interface Response<T> {
   status: number;
   data: T;
   message: string;
