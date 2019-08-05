@@ -49,8 +49,7 @@ module.exports = {
       const entryObject = {};
       entryObject[value.name === 'pages' ? 'index' : value.name] = value.path;
       return entryObject;
-    })),
-    vendor: ['moment']
+    }))
   },
   output: {
     path: path.join(
