@@ -68,7 +68,7 @@
   transition: none;
 }
 
-.loading-container {
+.bundle-loading {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -81,7 +81,7 @@
   align-items: center;
 }
 
-.loading-container > .loading {
+.bundle-loading > .loading-icon {
   color: #bbb;
   font-size: 3rem;
 }
