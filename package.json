@@ -18,7 +18,9 @@
     "clean": "rm -rf dist",
     "start:dev": "npm run clean:dev && npm run build:dev && nodemon server/index.ts",
     "start:prod": "npm run clean && npm run build && node dist/server/index.js",
-    "now-build": "npm run build"
+    "now-build": "npm run build",
+    "deploy:setup": "pm2 deploy ecosystem.config.js production setup",
+    "deploy": "pm2 deploy ecosystem.config.js production"
   },
   "browserslist": [
     "last 1 version",
