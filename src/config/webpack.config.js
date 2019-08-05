@@ -1,5 +1,6 @@
 const path = require('path');
 const glob = require('glob');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -48,7 +49,8 @@ module.exports = {
       const entryObject = {};
       entryObject[value.name === 'pages' ? 'index' : value.name] = value.path;
       return entryObject;
-    }))
+    })),
+    vendor: ['moment']
   },
   output: {
     path: path.join(
@@ -148,6 +150,7 @@ module.exports = {
         to: path.resolve(__dirname, (config.isDev ? '../../' : '../../dist/') + 'server-templates/redirect.html')
       }
     ]),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
   ]
 };
