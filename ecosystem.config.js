@@ -19,11 +19,11 @@ module.exports = {
   deploy: {
     production: {
       user: 'web',
-      host: 'tracel.ink',
+      host: '101.132.184.52',
       ref: 'origin/ssr',
       repo: 'git@github.com:lenconda/tracelink_web.git',
       path: '/home/web/space/tracelink_web',
-      'post-deploy': 'npm install && npm run clean && npm run build && pm2 reload ecosystem.config.js --env production'
+      'post-deploy': 'cnpm install && npm run clean && npm run build && pm2 reload ecosystem.config.js --env production'
     }
   }
 };
