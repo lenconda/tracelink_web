@@ -23,7 +23,8 @@ module.exports = {
       ref: 'origin/ssr',
       repo: 'git@github.com:lenconda/tracelink_web.git',
       path: '/home/web/space/tracelink_web',
-      'post-deploy': 'cnpm install && npm run clean && npm run build && pm2 reload ecosystem.config.js --env production'
+      'pre-deploy-local': 'npm i',
+      'post-deploy': 'npm run clean && npm run build && pm2 reload ecosystem.config.js --env production'
     }
   }
 };
