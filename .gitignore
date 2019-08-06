@@ -27,3 +27,6 @@ package-lock.json
 # IDEs
 .idea
 .vscode
+
+# Report files
+report*
