@@ -37,7 +37,7 @@ app.use(indexRouter.routes()).use(indexRouter.allowedMethods());
 app.use(createRouter.routes()).use(createRouter.allowedMethods());
 app.use(recordsRouter.routes()).use(recordsRouter.allowedMethods());
 
-app.use(serve(path.join(__dirname, '../server-bundle')));
+config.isDev && app.use(serve(path.join(__dirname, '../server-bundle')));
 
 app.use(kcors());
 

@@ -60,7 +60,7 @@ module.exports = {
     ),
     filename: 'static/js/[name]-route.[hash:8].js',
     chunkFilename: 'static/js/[name].[hash:8].chunk.js',
-    publicPath: '/'
+    publicPath: '//tracelink-static.lenconda.top'
   },
   optimization: {
     splitChunks: {
