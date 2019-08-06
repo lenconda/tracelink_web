@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const config = require('./config');
 
 function getEntries(searchPath, root) {
@@ -150,6 +151,16 @@ module.exports = {
       }
     ]),
     new CleanWebpackPlugin(),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      reportFilename: '../../report/report.html',
+      defaultSizes: 'parsed',
+      openAnalyzer: false,
+      generateStatsFile: true,
+      statsFilename: '../../report/stats.json',
+      statsOptions: null,
+      logLevel: 'info'
+    }),
   ]
 };
