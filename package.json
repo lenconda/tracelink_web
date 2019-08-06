@@ -106,6 +106,7 @@
     "react-toastify": "^5.3.2",
     "sass-loader": "^7.1.0",
     "terser-webpack-plugin": "^1.4.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "validator": "^11.1.0",
     "webpack-bundle-analyzer": "^3.4.1"
   }
