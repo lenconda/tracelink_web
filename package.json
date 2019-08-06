@@ -11,11 +11,11 @@
     "build:server:dev": "export NODE_ENV='development'; npm run clean:server && tsc --build server/tsconfig.json",
     "build:server:prod": "export NODE_ENV='production'; npm run clean:server && tsc --build tsconfig.json",
     "build:dev": "npm run build:bundle:dev",
-    "build": "npm run build:bundle:prod && npm run build:server:prod",
-    "clean:bundle": "rm -rf server-{templates,bundle}",
+    "build": "npm run clean && npm run build:bundle:prod && npm run build:server:prod",
+    "clean:bundle": "rm -rf server-{templates,bundle} report",
     "clean:server": "rm -rf server-dist",
     "clean:dev": "npm run clean:bundle && npm run clean:server",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist report",
     "start:dev": "npm run clean:dev && npm run build:dev && nodemon server/index.ts",
     "start:prod": "npm run clean && npm run build && node dist/server/index.js",
     "now-build": "npm run build",
@@ -106,6 +106,7 @@
     "react-toastify": "^5.3.2",
     "sass-loader": "^7.1.0",
     "terser-webpack-plugin": "^1.4.1",
-    "validator": "^11.1.0"
+    "validator": "^11.1.0",
+    "webpack-bundle-analyzer": "^3.4.1"
   }
 }
