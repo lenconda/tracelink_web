@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const config = require('./config');
 
@@ -48,7 +49,7 @@ module.exports = {
   entry: {
     ...Object.assign(...entries.map((value, index) => {
       const entryObject = {};
-      entryObject[value.name === 'pages' ? 'index' : value.name] = value.path;
+      entryObject[value.name === 'pages' ? 'app_root' : value.route.split('/').join('_')] = value.path;
       return entryObject;
     }))
   },
@@ -58,7 +59,21 @@ module.exports = {
       (config.isDev ? '../../' : '../../dist/') + 'server-bundle'
     ),
     filename: 'static/js/[name]-route.[hash:8].js',
+    chunkFilename: 'static/js/[name].[hash:8].chunk.js',
     publicPath: '/'
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        common: {
+          name: 'common',
+          chunks: 'all',
+          minSize: 20,
+          minChunks: 2
+        }
+      }
+    },
+    minimizer: [new UglifyJsPlugin()],
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'jsx']
@@ -132,7 +147,7 @@ module.exports = {
           title: pages[value.route] && (pages[value.route].title || config.name) || config.name
         },
         inject: true,
-        chunks: [value.name === 'pages' ? 'index' : value.name]
+        chunks: [(value.name === 'pages' ? 'app_root' : value.route.split('/').join('_')), 'common']
       });
     }),
     new MiniCssExtractPlugin({
