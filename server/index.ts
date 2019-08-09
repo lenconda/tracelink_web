@@ -15,7 +15,7 @@ import recordsRouter from './routers/records';
 
 const app = new Koa();
 
-app.use(views(path.join(__dirname, '../server-templates'), {
+app.use(views(path.join(__dirname, config.isDev ? '../dev/server-templates' : '../server-templates'), {
   map: {
     html: 'handlebars'
   }
@@ -37,7 +37,7 @@ app.use(indexRouter.routes()).use(indexRouter.allowedMethods());
 app.use(createRouter.routes()).use(createRouter.allowedMethods());
 app.use(recordsRouter.routes()).use(recordsRouter.allowedMethods());
 
-app.use(serve(path.join(__dirname, '../server-bundle')));
+app.use(serve(path.join(__dirname, config.isDev ? '../dev/server-bundle' : '../server-bundle')));
 
 app.use(kcors());
 

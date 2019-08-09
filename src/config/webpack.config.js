@@ -49,18 +49,18 @@ module.exports = {
   entry: {
     ...Object.assign(...entries.map((value, index) => {
       const entryObject = {};
-      entryObject[value.name === 'pages' ? 'app_root' : value.route.split('/').join('_')] = value.path;
+      entryObject[value.name === 'pages' ? 'app__root' : value.route.split('/').join('_')] = value.path;
       return entryObject;
     }))
   },
   output: {
     path: path.join(
       __dirname,
-      (config.isDev ? '../../' : '../../dist/') + 'server-bundle'
+      (config.isDev ? '../../dev/' : '../../dist/') + 'server-bundle'
     ),
-    filename: 'static/js/[name]-route.[hash:8].js',
-    chunkFilename: 'static/js/[name].[hash:8].chunk.js',
-    publicPath: '//tracelink-static.lenconda.top'
+    filename: 'static/js/' + (config.isDev ? '[name]-routes.js' : '[name]-routes.[hash:8].js'),
+    chunkFilename: 'static/js/' + (config.isDev ? '[name].chunk.js' : '[name].[hash:8].chunk.js'),
+    publicPath: config.isDev ? '/' : '//tracelink-static.lenconda.top'
   },
   optimization: {
     splitChunks: {
@@ -135,7 +135,7 @@ module.exports = {
       return new HtmlWebpackPlugin({
         filename: path.join(
           __dirname,
-          (config.isDev ? '../../' : '../../dist/') + 'server-templates/',
+          (config.isDev ? '../../dev/' : '../../dist/') + 'server-templates/',
           value.route === '' ? 'index.html' : value.route + '/index.html'
         ),
         template:
@@ -147,22 +147,22 @@ module.exports = {
           title: pages[value.route] && (pages[value.route].title || config.name) || config.name
         },
         inject: true,
-        chunks: [(value.name === 'pages' ? 'app_root' : value.route.split('/').join('_')), 'common']
+        chunks: [(value.name === 'pages' ? 'app__root' : value.route.split('/').join('_')), 'common']
       });
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash:8].css',
-      chunkFilename: '[id].[hash:8].css'
+      filename: config.isDev ? '[name].css' : '[name].[hash:8].css',
+      chunkFilename: config.isDev ? '[id].css' : '[id].[hash:8].css'
     }),
     new TerserWebpackPlugin(),
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../assets/'),
-        to: path.resolve(__dirname, (config.isDev ? '../../' : '../../dist/') + 'server-bundle/assets')
+        to: path.resolve(__dirname, (config.isDev ? '../../dev/' : '../../dist/') + 'server-bundle/assets')
       },
       {
         from: path.resolve(__dirname, '../templates/redirect.html'),
-        to: path.resolve(__dirname, (config.isDev ? '../../' : '../../dist/') + 'server-templates/redirect.html')
+        to: path.resolve(__dirname, (config.isDev ? '../../dev/' : '../../dist/') + 'server-templates/redirect.html')
       }
     ]),
     new CleanWebpackPlugin(),
