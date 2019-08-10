@@ -59,8 +59,8 @@ module.exports = {
       __dirname,
       (config.isDev ? '../../dev/' : '../../dist/') + 'server-bundle'
     ),
-    filename: 'static/js/' + (config.isDev ? '[name]-routes.js' : '[name]-routes.[hash:8].js'),
-    chunkFilename: 'static/js/' + (config.isDev ? '[name].chunk.js' : '[name].[hash:8].chunk.js'),
+    filename: 'static/js/' + (config.isDev ? '[name]-routes.js' : '[name]-routes.[contenthash].js'),
+    chunkFilename: 'static/js/' + (config.isDev ? '[name].chunk.js' : '[name].[contenthash].chunk.js'),
     publicPath: config.isDev ? '/' : '//tracelink-static.lenconda.top'
   },
   optimization: {
@@ -152,14 +152,14 @@ module.exports = {
       });
     }),
     new MiniCssExtractPlugin({
-      filename: config.isDev ? '[name].css' : '[name].[hash:8].css',
-      chunkFilename: config.isDev ? '[id].css' : '[id].[hash:8].css'
+      filename: config.isDev ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: config.isDev ? '[id].css' : '[id].[contenthash].css'
     }),
     new TerserWebpackPlugin(),
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../assets/'),
-        to: path.resolve(__dirname, (config.isDev ? '../../dev/' : '../../dist/') + 'server-bundle/assets')
+        to: path.resolve(__dirname, (config.isDev ? '../../dev/' : '../../dist/') + 'server-static/assets')
       },
       {
         from: path.resolve(__dirname, '../templates/redirect.html'),
