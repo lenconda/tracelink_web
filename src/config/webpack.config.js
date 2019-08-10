@@ -1,6 +1,7 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
+const { execSync } = require('child_process');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -179,3 +180,9 @@ module.exports = {
     }),
   ]
 };
+
+process.on('SIGINT', () => {
+  if (config.isDev) {
+    execSync('npm run clean:dev');
+  }
+});

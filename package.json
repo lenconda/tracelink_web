@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:webpack": "cross-env NODE_ENV=development webpack -wd --config src/config/webpack.config.js",
     "dev:server": "cross-env NODE_ENV=development ts-node --project tsconfig.json server/index.ts",
+    "start": "npm run dev:webpack | npm run dev:server",
     "build:bundle": "webpack --config src/config/webpack.config.js",
     "build:bundle:dev": "cross-env NODE_ENV=development webpack --config src/config/webpack.config.js --mode development",
     "build:bundle:prod": "cross-env NODE_ENV=production webpack --config src/config/webpack.config.js --mode production",
