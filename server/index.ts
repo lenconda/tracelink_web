@@ -39,7 +39,7 @@ app.use(createRouter.routes()).use(createRouter.allowedMethods());
 app.use(recordsRouter.routes()).use(recordsRouter.allowedMethods());
 
 (config.isDev && app.use(serve(path.join(__dirname, '../dev/server-bundle'))));
-app.use(serve(path.join(__dirname, (config.isDev ? '../dev/' : '../dist/'), './server-static')));
+app.use(serve(path.join(__dirname, (config.isDev ? '../dev/' : '../'), './server-static')));
 
 app.use(kcors());
 
